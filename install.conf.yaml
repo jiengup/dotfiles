@@ -1,3 +1,19 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- shell:
+  - git submodule sync --recursive
+  - git submodule update --init --recursive
+  - git submodule update --init --remote
+
+- link:
+    ~/.dotfiles: '' # 
+    ~/.vim:
+    ~/.vimrc:
+    ~/.tmux:
+    ~/.tmux.conf:
+
