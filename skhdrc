@@ -1,0 +1,5 @@
+# opens iTerm2
+lctrl + cmd - t : "${HOME}"/Developers/scripts/open_iterm2.sh
+
+lalt - c : open -a "Google Chrome"
+lalt - v : open -a "Visual Studio Code"
