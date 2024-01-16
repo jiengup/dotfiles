@@ -1,6 +1,6 @@
 " Use the Solarized Dark theme
 " set background=dark
-colorscheme monokai
+colorscheme monokain
 " let g:solarized_termtrans=1
 
 " Make Vim more useful
