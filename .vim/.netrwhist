@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/guntherX/.config/iterm2'
+let g:netrw_dirhist_3='/Users/guntherX/.config/yabai/scripts'
+let g:netrw_dirhist_2='/Users/guntherX/.config/yabai'
+let g:netrw_dirhist_1='/Users/guntherX/.config/atuin'
+let g:netrw_dirhist_0='/Users/guntherX/Developers/dotfiles'
+let g:netrw_dirhist_9='/Users/guntherX/.oh-my-zsh/themes'
+let g:netrw_dirhist_8='/Users/guntherX/Developers/copilot-gpt4-service/example'
+let g:netrw_dirhist_7='/Users/xingguangjie/.oh-my-zsh/themes'
+let g:netrw_dirhist_6='/Users/xingguangjie'
+let g:netrw_dirhist_5='/Users/xingguangjie/Desktop/kube-prometheus-0.3.0/manifests'
