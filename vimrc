@@ -1,107 +1,206 @@
-" Use the Solarized Dark theme
-" set background=dark
-colorscheme monokain
-" let g:solarized_termtrans=1
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Make Vim more useful
+" Don't try to be vi compatible
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" Turn on syntax highlighting
+syntax on
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" Search down into subfolders
+" provides tab completion for all file related tasks
+set path+=**
+
+" Display all matching files when we tab complete
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-" Centralize backups, swapfiles and undo history
-" set backup
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
+" Security
+set modelines=0
 set exrc
 set secure
-" Enable line numbers
+
+" Show line numbers
 set number
-" Enable syntax highlighting
-syntax on
-" Highlight current line
-" set cursorline
-" Make tabs as wide as two spaces
-set tabstop=4
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
+set relativenumber
+
+" Show file stats
 set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
+
+" Blink cursor on error instead of beeping (grr)
+set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=99
+set formatoptions=tcqrn1
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set autoindent
+set smartindent
+set noshiftround
+" set colorcolumn=100
+" highlight ColorColumn ctermbg=darkgray
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
 set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
-" Start scrolling three lines before the horizontal window border
+
+" Window splitting directions
+set splitbelow
+set splitright
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+
+" Uncomment this to enable by default:
+set list " To enable by default
+
+" This will enable
+" - Use ^] to jump to tag under cursor
+" - Use g^] for ambiguous tags
+" - Use ^t to jump back up the tag stack
+command! MakeTags !ctags -R .
+
+" Autocompletion is already enabled with ctags
+" - ^x^n for JUST this file
+" - ^x^f for filenames (works with out path trick!)
+" - ^x^] for tags only
+" - ^n for anythign specified by the 'complete' option
+" - Use ^n and ^p to go back and forth in the suggestion list
+"
+" Overview: In insert mode you can...
+"
+" ^r = insert text from a register
+" ^a = insert text from register '.'
+" ^p = completion menu
+" ^x = special "completion mode" submode of insert
+" --^] = tag
+" --^p = pull from previous context
+" --^n = pull from next context
+" --^f = file completion
+" --^l = line
+" --^o = omnicompletion
+"
+" How to change where to complete from:
+set omnifunc=syntaxcomplete#Complete
+set complete=.,w,b,u,t,i,kspell
+
+" Cursor motion
 set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+let mapleader=","
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+" Insert newline without entering insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+nnoremap <F3> :set hlsearch!<CR>
+
+" Code folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <C-space> za
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Brace completion
+inoremap { {}<Esc>i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+
+" Formatting
+map <leader>q gqip
+
+" Remap ^] to ^ä
+map <C-ä> <C-]>
+
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" clean trailing whitespace
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Show EOL type and last modified timestamp, right after the filename
+set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%Y-%m-%d\ %H:%M:%S\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
+
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+set termguicolors
+colorscheme pencil
+
+if has('gui_running')
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+    if exists('g:AutoDarkLoaded') || &cp
+      finish
+    end
+    let g:AutoDarkLoaded = 1
+
+    if !exists('##OSAppearanceChanged') && has("gui_running")
+      echomsg "AutoDark requires MacVim Snapshot 160 or later."
+      finish
+    end
+
+    func! s:ChangeBackground()
+      if (v:os_appearance)
+        set background=dark
+      else
+        set background=light
+      endif
+      redraw!
+    endfunc
+
+    augroup AutoDark
+      autocmd OSAppearanceChanged * call s:ChangeBackground()
+    augroup END
 endif
+

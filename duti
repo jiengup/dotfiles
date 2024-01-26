@@ -1,0 +1,11 @@
+com.zettlr.app net.daringfireball.markdown all
+com.coteditor.CotEditor public.yaml all
+com.coteditor.CotEditor public.json all
+com.coteditor.CotEditor public.plain-text all
+com.coteditor.CotEditor public.python-script all
+com.coteditor.CotEditor com.apple.applescript.script all
+com.coteditor.CotEditor com.apple.applescript.text all
+com.coteditor.CotEditor public.c-source all
+com.coteditor.CotEditor public.c-plus-plus-source all
+com.coteditor.CotEditor public.rtf all
+com.coteditor.CotEditor dyn.ah62d4rv4ge81k8pu all
