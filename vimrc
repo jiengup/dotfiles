@@ -3,6 +3,12 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" use system clipboard
+set clipboard=unnamed
+
+" leader key
+let mapleader=";"
+
 " Don't try to be vi compatible
 set nocompatible
 
@@ -19,6 +25,25 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'bkad/CamelCaseMotion'
+map <leader>w <Plug>CamelCaseMotion_w
+map <leader>b <Plug>CamelCaseMotion_b
+map <leader>e <Plug>CamelCaseMotion_e
+map <leader>ge <Plug>CamelCaseMotion_ge
+omap <leader>iw <Plug>CamelCaseMotion_iw
+xmap <leader>iw <Plug>CamelCaseMotion_iw
+omap <leader>ib <Plug>CamelCaseMotion_ib
+xmap <leader>ib <Plug>CamelCaseMotion_ib
+omap <leader>ie <Plug>CamelCaseMotion_ie
+xmap <leader>ie <Plug>CamelCaseMotion_ie
+
+Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
+
+Plugin 'scrooloose/nerdtree'
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+Plugin 'Lokaltog/vim-easymotion'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -56,6 +81,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " Turn on syntax highlighting
 syntax on
+
+" movition
+nmap H ^
+nmap L $
 
 " Search down into subfolders
 " provides tab completion for all file related tasks
@@ -151,7 +180,7 @@ set omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t,i,kspell
 
 " Cursor motion
-set scrolloff=3
+set scrolloff=10
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
@@ -165,7 +194,6 @@ nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
-let mapleader=";"
 
 " Insert newline without entering insert mode
 nmap <S-Enter> O<Esc>
@@ -191,11 +219,6 @@ nnoremap <C-space> za
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
-
-" Brace completion
-inoremap { {}<Esc>i
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
 
 " Formatting
 map <leader>q gqip

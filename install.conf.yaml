@@ -9,9 +9,12 @@
   - git submodule sync --recursive
   - git submodule update --init --recursive
   - git submodule update --init --remote
+  - git clone https://github.com/tmux-plugins/tpm tmux/plugins/tpm
+  - git clone https://github.com/tmux-plugins/tmux-resurrect tmux/plugins/tmux-recurrect
+  - git clone https://github.com/VundleVim/Vundle.vim.git vim/bundle/Vundle.vim
 
 - link:
-    ~/.dotfiles: '' # 
+    ~/.dotfiles: ''
     ~/.vim:
     ~/.vimrc:
     ~/.tmux:
@@ -20,3 +23,9 @@
     ~/.skhdrc:
     ~/.duti:
     ~/.gvimrc:
+    ~/.config/karabiner.edn: karabiner.edn
+
+- shell:
+  - duti ~/.duti
+  - vim +PluginInstall +qall
+  - goku

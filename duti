@@ -11,3 +11,4 @@ org.vim.macvim public.rtf all
 org.vim.macvim dyn.ah62d4rv4ge81k8pu all
 org.vim.macvim .go all
 org.vim.macvim .rs all
+com.apple.safari .html all
