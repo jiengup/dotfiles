@@ -80,7 +80,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 " Turn on syntax highlighting
-syntax on
+syntax enable
 
 " movition
 nmap H ^
@@ -239,7 +239,12 @@ set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%Y-%m-%d\ %H:%M:%S\",getftime
 set t_Co=256
 set background=dark
 set termguicolors
-colorscheme pencil
+" colorscheme pencil
+if $TERM =~# '256color' && ( $TERM =~# '^screen'  || $TERM =~# '^tmux' )
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 "GUI settings"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
