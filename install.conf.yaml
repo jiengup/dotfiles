@@ -20,12 +20,9 @@
     ~/.tmux:
     ~/.tmux.conf:
     ~/.scripts:
-    ~/.skhdrc:
     ~/.duti:
     ~/.gvimrc:
-    ~/.config/karabiner.edn: karabiner.edn
 
 - shell:
   - duti ~/.duti
   - vim +PluginInstall +qall
-  - goku

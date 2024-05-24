@@ -1,2 +1,3 @@
 vim/bundle/*
 tmux/
+.DS_Store

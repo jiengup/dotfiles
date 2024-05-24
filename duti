@@ -11,4 +11,7 @@ org.vim.macvim public.rtf all
 org.vim.macvim dyn.ah62d4rv4ge81k8pu all
 org.vim.macvim .go all
 org.vim.macvim .rs all
-com.apple.safari .html all
+org.vim.macvim .ts all
+org.vim.macvim .tsx all
+com.apple.Safari public.html all
+org.vim.macvim public.comma-separated-values-text all
