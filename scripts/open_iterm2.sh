@@ -1,4 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Multiple Iterm2
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon 🐚
+
+# Documentation:
+# @raycast.description New a Iterm2 window.
+# @raycast.author jiengup
+# @raycast.authorURL https://raycast.com/jiengup
 
 # Detects if iTerm2 is running
 if ! pgrep -f "iTerm" > /dev/null 2>&1; then
