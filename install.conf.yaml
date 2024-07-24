@@ -24,5 +24,4 @@
     ~/.gvimrc:
 
 - shell:
-  - duti ~/.duti
   - vim +PluginInstall +qall
