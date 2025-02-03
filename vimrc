@@ -100,7 +100,6 @@ set secure
 
 " Show line numbers
 set number
-set relativenumber
 
 " Show file stats
 set ruler
@@ -237,9 +236,8 @@ set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%Y-%m-%d\ %H:%M:%S\",getftime
 
 " Color scheme (terminal)
 set t_Co=256
-set background=dark
 set termguicolors
-" colorscheme pencil
+colorscheme pencil
 if $TERM =~# '256color' && ( $TERM =~# '^screen'  || $TERM =~# '^tmux' )
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
