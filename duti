@@ -13,5 +13,6 @@ org.vim.macvim .go all
 org.vim.macvim .rs all
 org.vim.macvim .ts all
 org.vim.macvim .tsx all
+org.vim.macvim .log all
 com.apple.Safari public.html all
 org.vim.macvim public.comma-separated-values-text all
