@@ -23,6 +23,7 @@
     ~/.duti:
     ~/.gvimrc:
     ~/.config/karabiner/karabiner.json:
+      force: true
       if: '[ "$(uname)" = "Darwin" ]'
 
 - shell:
