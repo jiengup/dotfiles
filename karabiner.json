@@ -26,7 +26,9 @@
                                             "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode",
-                                            "^com\\.mitchellh\\.ghostty"
+                                            "^com\\.mitchellh\\.ghostty",
+                                            "^com\\.baidu\\.comate\\.x",
+                                            "^com\\.baidu\\.icoding"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }

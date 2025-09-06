@@ -24,6 +24,7 @@
     ~/.gvimrc:
     ~/.config/karabiner/karabiner.json:
       force: true
+      create: false
       if: '[ "$(uname)" = "Darwin" ]'
 
 - shell:
@@ -43,6 +44,7 @@
       path: code/settings.json
       force: true
       create: false
+
     "$HOME/Library/Application Support/Cursor/User/keybindings.json":
       force: true
       path: code/keybindings.json
