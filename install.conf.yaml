@@ -22,6 +22,27 @@
     ~/.scripts:
     ~/.duti:
     ~/.gvimrc:
+    ~/.config/karabiner/karabiner.json:
+      if: '[ "$(uname)" = "Darwin" ]'
 
 - shell:
   - vim +PluginInstall +qall
+
+- link:
+    "$HOME/Library/Application Support/Code/User/settings.json":
+      path: code/settings.json
+      force: true
+      create: false
+    "$HOME/Library/Application Support/Code/User/keybindings.json":
+      path: code/keybindings.json
+      force: true
+      create: false
+
+    "$HOME/Library/Application Support/Cursor/User/settings.json":
+      path: code/settings.json
+      force: true
+      create: false
+    "$HOME/Library/Application Support/Cursor/User/keybindings.json":
+      force: true
+      path: code/keybindings.json
+      create: false

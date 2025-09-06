@@ -1,0 +1,260 @@
+{
+  "C_Cpp.autocompleteAddParentheses": true,
+  "C_Cpp.default.compilerArgs": [
+    "--std=c++14"
+  ],
+  "C_Cpp.default.cppStandard": "c++11",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--fallback-style=Google",
+    "--pretty",
+    "--function-arg-placeholders=true"
+    // "--compile-commands-dir=${workspaceFolder}",
+    // "--background-index",
+    // "--completion-style=detailed",
+    // "--header-insertion=never",
+    // "--log=info"
+  ],
+  "clangd.checkUpdates": false,
+  "cmake.configureOnOpen": true,
+  "cmake.options.statusBarVisibility": "icon",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "docker.extension.enableComposeLanguageServer": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorSurroundingLines": 10,
+  "editor.fontFamily": "'IBM Plex Mono', 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.inlineSuggest.enabled": true,
+  "editor.largeFileOptimizations": false,
+  "editor.minimap.autohide": "mouseover",
+  "editor.peekWidgetDefaultFocus": "editor",
+  "editor.rulers": [
+    100
+  ],
+  "editor.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "editor.suggest.preview": true,
+  "editor.suggestSelection": "first",
+  "explorer.autoReveal": true,
+  "explorer.confirmDragAndDrop": false,
+  "git.openRepositoryInParentFolders": "never",
+  "git.suggestSmartCommit": false,
+  "jupyter.askForKernelRestart": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "notebook.lineNumbers": "on",
+  "notebook.output.textLineLimit": 500,
+  "projectManager.git.baseFolders": [
+    "~/Developers"
+  ],
+  "projectManager.git.ignoredFolders": [
+    "node_modules",
+    "out",
+    "typings",
+    "test",
+    ".haxelib",
+    ".deploy_git",
+    "leo"
+  ],
+  "projectManager.sortList": "Path",
+  "python.globalModuleInstallation": true,
+  "remote.SSH.defaultExtensions": [
+    "llvm-vs-code-extensions.vscode-clangd",
+    "zhuangtongfa.material-theme",
+  ],
+  "remote.SSH.maxReconnectionAttempts": 0,
+  "remote.SSH.useLocalServer": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.external.osxExec": "Ghossty.app",
+  "terminal.integrated.customGlyphs": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.inheritEnv": false,
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+  "vim.camelCaseMotion.enable": true,
+  "vim.digraphs": {},
+  "vim.easymotion": true,
+  "vim.foldfix": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-b>": true,
+    "<C-d>": false,
+    "<C-f>": true,
+    "<C-i>": true,
+    "<C-o>": true,
+    "<C-r>": true,
+    "<C-s>": false,
+    "<C-t>": false,
+    "<C-v>": true,
+    "<C-w>": true
+  },
+  "vim.history": 10000,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.leader": ";",
+  "vim.normalModeKeyBindings": [
+    {
+      "after": [],
+      "before": [
+        "u"
+      ],
+      "commands": [
+        {
+          "command": "undo"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "<C-r>"
+      ],
+      "commands": [
+        {
+          "command": "redo"
+        }
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+        "before": ["s", "i", "w"],
+        "commands": [
+            "editor.action.addSelectionToNextFindMatch",  // 相当于选中当前单词
+            {
+                "command": "workbench.action.findInFiles",
+                "args": {
+                    "query": "${selectedText}",
+                    "triggerSearch": true
+                }
+            }
+        ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "U"
+      ],
+      "commands": [
+        "references-view.findReferences"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "r"
+      ],
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.debug.start"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "b"
+      ],
+      "commands": [
+        "editor.debug.action.toggleBreakpoint"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "c"
+      ],
+      "commands": [
+        "editor.debug.action.conditionalBreakpoint"
+      ]
+    }
+  ],
+  "vim.surround": true,
+  "vim.useCtrlKeys": false,
+  "vim.useSystemClipboard": true,
+  "vim.vimrc.path": "$HOME/.vimrc",
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatSelection"
+      ]
+    },
+    {
+      "after": [
+        "p",
+        "g",
+        "v",
+        "y"
+      ],
+      "before": [
+        "p"
+      ]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    }
+  ],
+  /* vim settings end */
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.layoutControl.enabled": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.preferredLightColorTheme": "One Dark Pro",
+  "workbench.startupEditor": "none"
+}
