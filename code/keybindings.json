@@ -36,7 +36,7 @@
 		"key": "ctrl+s",
 		"command": "workbench.action.findInFiles",
 		"args": {
-		"query": "${selectedText}",   // 使用选中内容作为搜索文本
+		"query": "${selectedText}",
 		"triggerSearch": true,
 		"isRegex": false,
 		"matchWholeWord": false,
@@ -48,6 +48,11 @@
 		"key": "ctrl+s",
 		"command": "workbench.action.closeSidebar",
 		"when": "searchViewletVisible"
+	},
+	{
+		"key": "ctrl+s",
+		"command": "workbench.action.findInFiles",
+		"when": "!searchViewletVisible"
 	},
 	{
 		"key": "ctrl+l",
@@ -183,6 +188,11 @@
 		"key": "ctrl+m",
 		"command": "workbench.action.toggleMaximizedPanel",
 		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+m",
+		"command": "workbench.action.toggleMaximizeEditorGroup",
+		"when": "editorFocus"
 	},
 	{
 		"key": "ctrl+shift+m",

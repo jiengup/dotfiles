@@ -24,7 +24,7 @@
   "docker.extension.enableComposeLanguageServer": false,
   "editor.accessibilitySupport": "off",
   "editor.cursorSurroundingLines": 10,
-  "editor.fontFamily": "'IBM Plex Mono', 'Courier New', monospace",
+  "editor.fontFamily": "Operator Mono, monospace",
   "editor.fontSize": 16,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
@@ -255,6 +255,20 @@
   "workbench.colorTheme": "One Dark Pro",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredLightColorTheme": "One Dark Pro",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
 }
