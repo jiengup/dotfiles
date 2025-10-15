@@ -28,7 +28,8 @@
                                             "^com\\.microsoft\\.VSCode",
                                             "^com\\.mitchellh\\.ghostty",
                                             "^com\\.baidu\\.comate\\.x",
-                                            "^com\\.baidu\\.icoding"
+                                            "^com\\.baidu\\.icoding",
+                                            "com.googlecode.iterm2"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
