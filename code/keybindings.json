@@ -1,15 +1,39 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
 	{
-		"key": "ctrl+t",
+		"key": "ctrl+e",
+		"command": "workbench.action.toggleSidebarVisibility",
+		"when": "sideBarVisible && activeViewlet == 'workbench.view.explorer'"
+	},
+	{
+		"key": "ctrl+e",
 		"command": "workbench.view.explorer",
- 	},
-
-	{ // rename file
+		"when": "!sideBarVisible || activeViewlet != 'workbench.view.explorer'"
+	},
+	{
+		"key": "ctrl+s",
+		"command": "workbench.action.toggleSidebarVisibility",
+		"when": "sideBarVisible && activeViewlet == 'workbench.view.search'"
+	},
+	{
+		"key": "ctrl+s",
+		"command": "workbench.view.search",
+		"when": "!sideBarVisible || activeViewlet != 'workbench.view.search'"
+	},
+	{
 		"key": "ctrl+t",
 		"command": "workbench.action.toggleSidebarVisibility",
-		"when": "filesExplorerFocus"
  	},
+	{
+		"key": "ctrl+g",
+		"command": "workbench.action.toggleSidebarVisibility",
+		"when": "sideBarVisible && activeViewlet == 'workbench.view.scm'"
+	},
+	{
+		"key": "ctrl+g",
+		"command": "workbench.view.scm",
+		"when": "!sideBarVisible || activeViewlet != 'workbench.view.scm'"
+	},
 	{
 		"key": "ctrl+d",
 		"command": "workbench.debug.action.focusVariablesView"
@@ -20,8 +44,12 @@
 		"when": "variablesFocused"
 	},
 	{
-		"key": "ctrl+h",
+		"key": "ctrl+shift+h",
 		"command": "workbench.action.previousEditor"
+	},
+	{
+		"key": "ctrl+shift+l",
+		"command": "workbench.action.nextEditor"
 	},
 	{
 		"key": "ctrl+shift+r",
@@ -36,7 +64,7 @@
 		"key": "ctrl+s",
 		"command": "workbench.action.findInFiles",
 		"args": {
-		"query": "${selectedText}",
+		"query": "${selectedText}",   // 使用选中内容作为搜索文本
 		"triggerSearch": true,
 		"isRegex": false,
 		"matchWholeWord": false,
@@ -48,15 +76,6 @@
 		"key": "ctrl+s",
 		"command": "workbench.action.closeSidebar",
 		"when": "searchViewletVisible"
-	},
-	{
-		"key": "ctrl+s",
-		"command": "workbench.action.findInFiles",
-		"when": "!searchViewletVisible"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "workbench.action.nextEditor"
 	},
 	{
 		"key": "cmd+h",
@@ -124,11 +143,6 @@
 		"command": "workbench.action.quickOpenNavigatePrevious",
 		"when": "inQuickOpen"
 	},
-	// {
-	// 	"key": "tab",
-	// 	"command": "selectNextSuggestion",
-	// 	"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-	// },
 	{
 		"key": "tab",
 		"command": "workbench.action.quickOpenNavigateNext",
@@ -139,7 +153,7 @@
 		"command": "selectPrevSuggestion",
 		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
 	},
-	{ // open selected explorer item 
+	{ // open selected explorer item
 		"key": "enter",
 		"command": "list.select",
 		"when": "explorerViewletVisible && filesExplorerFocus"
@@ -190,9 +204,39 @@
 		"when": "terminalFocus"
 	},
 	{
-		"key": "ctrl+m",
-		"command": "workbench.action.toggleMaximizeEditorGroup",
-		"when": "editorFocus"
+		"key": "cmd+t",
+		"command": "workbench.action.terminal.new",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "cmd+1",
+		"command": "workbench.action.terminal.focusAtIndex1",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+2",
+		"command": "workbench.action.terminal.focusAtIndex2",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+3",
+		"command": "workbench.action.terminal.focusAtIndex3",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+4",
+		"command": "workbench.action.terminal.focusAtIndex4",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+5",
+		"command": "workbench.action.terminal.focusAtIndex5",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+5",
+		"command": "workbench.action.terminal.focusAtIndex5",
+		"when": "terminalFocus",
 	},
 	{
 		"key": "ctrl+shift+m",
@@ -433,21 +477,6 @@
 		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
 	},
 	{
-		"key": "ctrl+j",
-		"command": "selectNextCodeAction",
-		"when": "codeActionMenuVisible"
-	},
-	{
-		"key": "ctrl+k",
-		"command": "selectPrevCodeAction",
-		"when": "codeActionMenuVisible"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "acceptSelectedCodeAction",
-		"when": "codeActionMenuVisible"
-	},
-	{
 		"key": "ctrl+w",
 		"command": "-workbench.action.switchWindow"
 	},
@@ -457,27 +486,9 @@
 		"when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
 	},
 	{
-		"key": "cmd+b",
-		"command": "-workbench.action.toggleSidebarVisibility"
-	},
-	{
 		"key": "ctrl+t",
 		"command": "-editor.action.transposeLetters",
 		"when": "textInputFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+g",
-		"command": "-workbench.action.gotoLine"
-	},
-	{
-		"key": "shift+alt+c",
-		"command": "aws.amazonq.invokeInlineCompletion",
-		"when": "aws.codewhisperer.connected && editorTextFocus"
-	},
-	{
-		"key": "alt+c",
-		"command": "-aws.amazonq.invokeInlineCompletion",
-		"when": "aws.codewhisperer.connected && editorTextFocus"
 	},
 	{
 		"key": "ctrl+c",

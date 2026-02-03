@@ -1,89 +1,53 @@
 {
-  "C_Cpp.autocompleteAddParentheses": true,
-  "C_Cpp.default.compilerArgs": [
-    "--std=c++14"
-  ],
-  "C_Cpp.default.cppStandard": "c++11",
-  "C_Cpp.formatting": "clangFormat",
   "C_Cpp.intelliSenseEngine": "disabled",
   "clangd.arguments": [
-    "--clang-tidy",
-    "--fallback-style=Google",
-    "--pretty",
-    "--function-arg-placeholders=true"
-    // "--compile-commands-dir=${workspaceFolder}",
-    // "--background-index",
-    // "--completion-style=detailed",
-    // "--header-insertion=never",
-    // "--log=info"
+    "--header-insertion=never",
+    "--query-driver=/opt/compiler/gcc-12/bin/g++",
+    "--all-scopes-completion",
+    "--inlay-hints",
+    "--completion-style=detailed",
+    "--j=8",
+    "--pch-storage=disk",
+    "--compile-commands-dir=build",
+    "--background-index",
+    "--log=error"
   ],
-  "clangd.checkUpdates": false,
-  "cmake.configureOnOpen": true,
-  "cmake.options.statusBarVisibility": "icon",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "docker.extension.enableComposeLanguageServer": false,
+  "C_Cpp.clang_format_style": "file:/ssd2/xingguangjie1/.config/clang-format/.clang-format",
+  "C_Cpp.formatting": "clangFormat",
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
   "editor.accessibilitySupport": "off",
-  "editor.cursorSurroundingLines": 10,
-  "editor.fontFamily": "Operator Mono, monospace",
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono', monospace",
   "editor.fontSize": 16,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
   "editor.minimap.autohide": "mouseover",
   "editor.peekWidgetDefaultFocus": "editor",
-  "editor.rulers": [
-    100
-  ],
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSurroundingLines": 2,
+  "editor.mouseWheelScrollSensitivity": 1,
+  "editor.fastScrollSensitivity": 3,
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorBlinking": "smooth",
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
   "explorer.autoReveal": true,
   "explorer.confirmDragAndDrop": false,
   "git.openRepositoryInParentFolders": "never",
   "git.suggestSmartCommit": false,
-  "jupyter.askForKernelRestart": false,
-  "jupyter.interactiveWindow.creationMode": "perFile",
   "notebook.lineNumbers": "on",
   "notebook.output.textLineLimit": 500,
-  "projectManager.git.baseFolders": [
-    "~/Developers"
-  ],
-  "projectManager.git.ignoredFolders": [
-    "node_modules",
-    "out",
-    "typings",
-    "test",
-    ".haxelib",
-    ".deploy_git",
-    "leo"
-  ],
-  "projectManager.sortList": "Path",
-  "python.globalModuleInstallation": true,
   "remote.SSH.defaultExtensions": [
     "llvm-vs-code-extensions.vscode-clangd",
-    "zhuangtongfa.material-theme",
   ],
-  "remote.SSH.maxReconnectionAttempts": 0,
-  "remote.SSH.useLocalServer": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.external.osxExec": "Ghossty.app",
-  "terminal.integrated.customGlyphs": false,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.inheritEnv": false,
-  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
   "vim.autoSwitchInputMethod.enable": true,
-  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
-  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
   "vim.camelCaseMotion.enable": true,
   "vim.digraphs": {},
   "vim.easymotion": true,
   "vim.foldfix": true,
   "vim.handleKeys": {
-    "<C-a>": false,
+    "<C-a>": true,
     "<C-b>": true,
     "<C-d>": false,
     "<C-f>": true,
@@ -93,7 +57,11 @@
     "<C-s>": false,
     "<C-t>": false,
     "<C-v>": true,
-    "<C-w>": true
+    "<C-w>": true,
+    "<C-h>": false,
+    "<C-j>": false,
+    "<C-k>": false,
+    "<C-l>": false,
   },
   "vim.history": 10000,
   "vim.hlsearch": true,
@@ -125,17 +93,41 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-        "before": ["s", "i", "w"],
-        "commands": [
-            "editor.action.addSelectionToNextFindMatch",  // 相当于选中当前单词
-            {
-                "command": "workbench.action.findInFiles",
-                "args": {
-                    "query": "${selectedText}",
-                    "triggerSearch": true
-                }
-            }
-        ]
+    "before": ["<C-a>", "h"],
+    "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<C-a>", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["<C-a>", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<C-a>", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<C-a>", "z"],
+      "commands": ["workbench.action.toggleMaximizeEditorGroup"]
+    },
+    {
+      "before": [
+        "s",
+        "i",
+        "w"
+      ],
+      "commands": [
+        "editor.action.addSelectionToNextFindMatch", // 相当于选中当前单词
+        {
+          "command": "workbench.action.findInFiles",
+          "args": {
+            "query": "${selectedText}",
+            "triggerSearch": true
+          }
+        }
+      ]
     },
     {
       "before": [
@@ -248,27 +240,55 @@
     }
   ],
   /* vim settings end */
-  "vsicons.dontShowNewVersionMessage": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.startupEditor": "none",
-  "workbench.preferredLightColorTheme": "GitHub Light Default",
-  "[dockercompose]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": false,
-      "strings": true
-    },
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+  "workbench.preferredLightColorTheme": "Aura Soft Dark",
+  "workbench.preferredDarkColorTheme": "One Dark Pro Night Flat",
+  "baidu.comate.superCompletion": {
+    "superCompletion": true,
+    "autoImport": false
   },
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  "baidu.comate.completionLength": "auto",
+  "editor.formatOnSave": false,
+  "baidu.comate.enableCodelens": {
+    "enableInlineUnitTest": false,
+    "enableInlineExplain": false,
+    "enableInlineDocstring": false,
+    "enableInlineSplit": false,
+    "enableInlineComment": false,
+    "enableInlineOptimize": false,
+  },
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.fontFamily": "SauceCodePro Nerd Font Mono, Menlo, Monaco",
+  "terminal.integrated.fontSize": 14,
+  "terminal.explorerKind": "external",
+  "terminal.external.osxExec": "iTerm2.app",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "keyword",
+          "storage",
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "workbench.activityBar.location": "top",
+  "workbench.activityBar.iconClickBehavior": "toggle",
+  "claudeCode.preferredLocation": "sidebar",
+  "baidu.comate.joinLab": true,
+  "terminal.integrated.scrollback": 10000,
+  "workbench.iconTheme": "material-icon-theme",
+  "window.customTitleBarVisibility": "windowed",
+  "remote.downloadExtensionsLocally": true,
+  "baidu.comate.username": "xingguangjie",
+  "window.density.editorTabHeight": "compact",
+  "remote.autoForwardPortsSource": "hybrid",
+  "diffEditor.ignoreTrimWhitespace": false,
 }

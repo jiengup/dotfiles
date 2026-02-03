@@ -39,13 +39,15 @@
       path: code/keybindings.json
       force: true
       create: false
-
     "$HOME/Library/Application Support/Cursor/User/settings.json":
       path: code/settings.json
       force: true
       create: false
-
     "$HOME/Library/Application Support/Cursor/User/keybindings.json":
       force: true
       path: code/keybindings.json
+      create: false
+    "$HOME/Library/Application Support/Comate/User/keybindings.json":
+      path: code/keybindings.json
+      force: true
       create: false
