@@ -31,6 +31,14 @@
   - vim +PluginInstall +qall
 
 - link:
+    "$HOME/.config/zed/settings.json":
+      path: zed/settings.json
+      force: true
+      create: false
+    "$HOME/.config/zed/keymap.json":
+      path: zed/keymap.json
+      force: true
+      create: false
     "$HOME/Library/Application Support/Code/User/settings.json":
       path: code/settings.json
       force: true

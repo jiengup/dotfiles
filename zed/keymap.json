@@ -1,0 +1,101 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-e": "project_panel::Toggle",
+    },
+  },
+  {
+    "context": "Editor || AcpPanel || Terminal || ProjectPanel",
+    "bindings": {
+      "ctrl-e": "project_panel::Toggle",
+      "ctrl-s": "pane::DeploySearch",
+      "ctrl-g": "git_panel::Toggle",
+      "ctrl-d": "debug_panel::Toggle",
+      "ctrl-\\": "terminal_panel::Toggle",
+      "ctrl-shift-m": "workspace::ToggleZoom",
+      "ctrl-c": "workspace::ToggleRightDock",
+      "cmd-h": "pane::SplitAndMoveLeft",
+      "cmd-j": "pane::SplitAndMoveUp",
+      "cmd-k": "pane::SplitAndMoveDown",
+      "cmd-l": "pane::SplitAndMoveRight",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
+      "ctrl-shift-l": "pane::ActivateNextItem",
+      "cmd-1": ["pane::ActivateItem", 0],
+      "cmd-2": ["pane::ActivateItem", 1],
+      "cmd-3": ["pane::ActivateItem", 2],
+      "cmd-4": ["pane::ActivateItem", 3],
+      "cmd-5": ["pane::ActivateItem", 4],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+      "cmd-1": ["pane::ActivateItem", 0],
+      "cmd-2": ["pane::ActivateItem", 1],
+      "cmd-3": ["pane::ActivateItem", 2],
+      "cmd-4": ["pane::ActivateItem", 3],
+      "cmd-5": ["pane::ActivateItem", 4],
+      "ctrl-m": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious",
+    },
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "ctrl-l": "editor::ConfirmCompletion",
+      "shift-tab": "editor::ContextMenuPrevious",
+    },
+  },
+  {
+    "context": "Editor && showing_signature_help && !showing_completions",
+    "bindings": {
+      "ctrl-j": "editor::SignatureHelpNext",
+      "ctrl-k": "editor::SignatureHelpPrevious",
+    },
+  },
+  {
+    "context": "FileFinder || (FileFinder > Picker > Editor) || (FileFinder > Picker > menu)",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious",
+      "tab": "menu::SelectNext",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "enter": "project_panel::Open",
+      "r": "project_panel::Rename",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "project_panel::Open",
+      "o": "project_panel::ExpandSelectedEntry",
+      "h": "project_panel::CollapseSelectedEntry",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "d": ["project_panel::Trash", { "skip_prompt": false }],
+      "ctrl-h": "project_panel::CollapseSelectedEntry",
+      "ctrl-l": "project_panel::Open",
+    },
+  },
+]
