@@ -13,7 +13,7 @@
     },
   },
   {
-    "context": "Editor || AcpPanel || Terminal || ProjectPanel",
+    "context": "Editor || AcpPanel || Terminal || ProjectPanel || DebugPanel",
     "bindings": {
       "ctrl-e": "project_panel::Toggle",
       "ctrl-s": "pane::DeploySearch",
