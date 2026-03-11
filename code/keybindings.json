@@ -23,7 +23,7 @@
 	{
 		"key": "ctrl+t",
 		"command": "workbench.action.toggleSidebarVisibility",
- 	},
+	},
 	{
 		"key": "ctrl+g",
 		"command": "workbench.action.toggleSidebarVisibility",
@@ -64,11 +64,11 @@
 		"key": "ctrl+s",
 		"command": "workbench.action.findInFiles",
 		"args": {
-		"query": "${selectedText}",   // 使用选中内容作为搜索文本
-		"triggerSearch": true,
-		"isRegex": false,
-		"matchWholeWord": false,
-		"isCaseSensitive": false
+			"query": "${selectedText}", // 使用选中内容作为搜索文本
+			"triggerSearch": true,
+			"isRegex": false,
+			"matchWholeWord": false,
+			"isCaseSensitive": false
 		},
 		"when": "editorTextFocus && editorHasSelection"
 	},
@@ -93,12 +93,12 @@
 		"key": "cmd+l",
 		"command": "workbench.action.moveEditorToRightGroup"
 	},
-    { // make cursor back to editor
+	{ // make cursor back to editor
 		"key": "ctrl+k",
 		"command": "workbench.action.focusActiveEditorGroup",
 		"when": "panelFocus && activePanel"
 	},
-    { // make cursor back to editor
+	{ // make cursor back to editor
 		"key": "ctrl+h",
 		"command": "workbench.action.focusActiveEditorGroup",
 		"when": "panelFocus && activePanel"
@@ -237,6 +237,31 @@
 		"key": "cmd+5",
 		"command": "workbench.action.terminal.focusAtIndex5",
 		"when": "terminalFocus",
+	},
+	{
+		"key": "cmd+1",
+		"command": "workbench.action.openEditorAtIndex1",
+		"when": "editorFocus",
+	},
+	{
+		"key": "cmd+2",
+		"command": "workbench.action.openEditorAtIndex2",
+		"when": "editorFocus",
+	},
+	{
+		"key": "cmd+3",
+		"command": "workbench.action.openEditorAtIndex3",
+		"when": "editorFocus",
+	},
+	{
+		"key": "cmd+4",
+		"command": "workbench.action.openEditorAtIndex4",
+		"when": "editorFocus",
+	},
+	{
+		"key": "cmd+5",
+		"command": "workbench.action.openEditorAtIndex5",
+		"when": "editorFocus",
 	},
 	{
 		"key": "ctrl+shift+m",
